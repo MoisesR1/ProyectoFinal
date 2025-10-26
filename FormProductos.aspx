@@ -11,13 +11,7 @@
     <asp:Button ID="Btn_Agregar" Text="Agregar Producto" runat="server" CssClass="btn btn-primary" OnClick="Btn_Agregar_Click" />
     <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
     <br />
-    <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" DataKeyNames="IDproducto" DataSourceID="SqlDataSource1">
-        <Columns>
-            <asp:BoundField DataField="IDproducto" HeaderText="IDproducto" InsertVisible="False" ReadOnly="True" SortExpression="IDproducto" />
-            <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" />
-            <asp:BoundField DataField="Precio" HeaderText="Precio" SortExpression="Precio" />
-            <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
-        </Columns>
+    <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
 
     </asp:GridView>
 

@@ -12,6 +12,7 @@
         productos.Precio = Convert.ToDecimal(Txt_precio.Text)
         productos.Cantidad = Convert.ToInt32(Txt_cantidad.Text)
         lblMensaje.Text = dbHelper.create(productos)
-
     End Sub
+
+
 End Class
