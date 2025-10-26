@@ -4,7 +4,7 @@
      <asp:hiddenField ID="editando" runat="server" Visible="true" />
      <h2>Inventario de Ferreteria Brenes</h2>
 
-    <asp:TextBox ID="Txt_id" Placeholder="ID" runat="server"></asp:TextBox>
+    <asp:TextBox ID="Txt_idproducto" Placeholder="ID" runat="server"></asp:TextBox>
     <asp:TextBox ID="Txt_descripcion" Placeholder="Descripcion" runat="server"></asp:TextBox>
     <asp:TextBox ID="Txt_precio" Placeholder="Precio" runat="server"></asp:TextBox>
     <asp:TextBox ID="Txt_cantidad" Placeholder="Cantidad" runat="server"></asp:TextBox>

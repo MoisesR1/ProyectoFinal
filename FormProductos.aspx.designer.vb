@@ -23,13 +23,13 @@ Partial Public Class FormProductos
     Protected WithEvents editando As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''Control Txt_id.
+    '''Control Txt_idproducto.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Txt_id As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents Txt_idproducto As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''Control Txt_descripcion.

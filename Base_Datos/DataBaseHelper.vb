@@ -1,3 +1,28 @@
-﻿Public Class DataBaseHelper
+﻿Imports System.Data.SqlClient
+
+Public Class DataBaseHelper
+    Private ReadOnly ConectionString As String = ConfigurationManager.ConnectionStrings("II-46ConnectionString").ConnectionString
+
+    Public Function create(Productos As Productos) As String
+        Try
+            Dim sql As String = "INSERT INTO Productos (Descripcion, Precio, Cantidad) VALUES (@Descripcion, @Precio, @Cantidad)"
+            Dim parametros As New List(Of SqlParameter) From {
+                New SqlParameter("@Descripcion", Productos.Descripcion),
+                New SqlParameter("@Precio", Productos.Precio),
+                New SqlParameter("@Edad", Productos.Cantidad)
+                }
+
+            Using connection As New SqlConnection(ConectionString)
+                Using command As New SqlCommand(sql, connection)
+                    command.Parameters.AddRange(parametros.ToArray())
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                End Using
+            End Using
+        Catch ex As Exception
+
+        End Try
+        Return "!Producto agregado exitosamente!"
+    End Function
 
 End Class
