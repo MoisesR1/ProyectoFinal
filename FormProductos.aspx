@@ -4,14 +4,40 @@
      <asp:hiddenField ID="editando" runat="server" Visible="true" />
      <h2>Inventario de Ferreteria Brenes</h2>
 
-    <asp:TextBox ID="Txt_idproducto" Placeholder="ID" runat="server"></asp:TextBox>
-    <asp:TextBox ID="Txt_descripcion" Placeholder="Descripcion" runat="server"></asp:TextBox>
-    <asp:TextBox ID="Txt_precio" Placeholder="Precio" runat="server"></asp:TextBox>
-    <asp:TextBox ID="Txt_cantidad" Placeholder="Cantidad" runat="server"></asp:TextBox>
+    <style>
+        .btn-hover-move {
+            transition: transform 0.5s ease, box-shadow 0.2s;
+        }
+        .btn-hover-move:hover{
+            transform: translate(-4px) scale(1.04);
+            box-shadow: 0 6px 18px rgb(0 148 255);
+        }
+    </style>
+
+    <div class="container d-flex flex-column mb-3 gap-2">
+
+    <asp:TextBox ID="Txt_idproducto" CssClass="form-control" Placeholder="ID" runat="server"></asp:TextBox>
+    <asp:TextBox ID="Txt_descripcion" CssClass="form-control" Placeholder="Descripcion" runat="server"></asp:TextBox>
+    <asp:TextBox ID="Txt_precio" CssClass="form-control" Placeholder="Precio" runat="server"></asp:TextBox>
+    <asp:TextBox ID="Txt_cantidad" CssClass="form-control" Placeholder="Cantidad" runat="server"></asp:TextBox>
     <asp:Button ID="Btn_Agregar" Text="Agregar Producto" runat="server" CssClass="btn btn-primary" OnClick="Btn_Agregar_Click" />
     <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
+    </div>
+
     <br />
+<<<<<<< HEAD
     <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+=======
+    <asp:GridView ID="gvProductos" CssClass="table table-striped table-group-divider table-success" runat="server" AutoGenerateColumns="False" DataKeyNames="IDproducto" DataSourceID="SqlDataSource1">
+        <Columns>
+            <asp:CommandField ShowEditButton="True" ControlStyle-CssClass="btn btn-secondary"/>
+            <asp:BoundField DataField="IDproducto" HeaderText="IDproducto" InsertVisible="False" ReadOnly="True" SortExpression="IDproducto" />
+            <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" />
+            <asp:BoundField DataField="Precio" HeaderText="Precio" SortExpression="Precio" />
+            <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
+            <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="btn btn-danger"/>
+        </Columns>
+>>>>>>> 29c410ad6a49032f8f53f7411874587a2d34c948
 
     </asp:GridView>
 
