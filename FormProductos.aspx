@@ -1,14 +1,14 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="FormProductos.aspx.vb" Inherits="ProyectoFinal.FormProductos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-     <asp:hiddenField ID="editando" runat="server" />
+     <asp:hiddenField ID="editando" runat="server" Visible="true" />
      <h2>Inventario de Ferreteria Brenes</h2>
 
     <asp:TextBox ID="Txt_id" Placeholder="ID" runat="server"></asp:TextBox>
     <asp:TextBox ID="Txt_descripcion" Placeholder="Descripcion" runat="server"></asp:TextBox>
     <asp:TextBox ID="Txt_precio" Placeholder="Precio" runat="server"></asp:TextBox>
     <asp:TextBox ID="Txt_cantidad" Placeholder="Cantidad" runat="server"></asp:TextBox>
-    <asp:Button ID="Btn_Agregar" Text="Agregar Producto" runat="server" OnClick="Btn_Agregar_Click" />
+    <asp:Button ID="Btn_Agregar" Text="Agregar Producto" runat="server" CssClass="btn btn-primary" OnClick="Btn_Agregar_Click" />
     <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
     <br />
     <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" DataKeyNames="IDproducto" DataSourceID="SqlDataSource1">
