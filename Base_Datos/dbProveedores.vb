@@ -3,6 +3,11 @@
 Public Class dbProveedores
     Private ReadOnly ConectionString As String = ConfigurationManager.ConnectionStrings("II-46ConnectionString").ConnectionString
 
+
+    Friend Sub delete(id As Integer)
+        Throw New NotImplementedException()
+    End Sub
+
     Public Function Create(proveedor As Proveedor) As String
         Try
             Dim sql As String = "INSERT INTO Proveedor (id, empresa, telefono, direccion) VALUES (@id, @empresa, @telefono, @direccion)"
