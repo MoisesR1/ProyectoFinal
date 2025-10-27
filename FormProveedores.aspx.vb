@@ -12,7 +12,7 @@
         proveedor.empresa = Txt_empresa.Text
         proveedor.telefono = Txt_telefono.Text
 
-        lblMensaje.Text = dbHelper.insert(proveedor)
+        lblMensaje.Text = dbHelper.Create(proveedor)
 
     End Sub
 
