@@ -4,6 +4,7 @@
 
     <h2>Inventario de Ferretería Brenes</h2>
 
+  
     <asp:TextBox ID="Txt_idproveedor" Placeholder="ID" runat="server"></asp:TextBox>
     <asp:TextBox ID="Txt_empresa" Placeholder="Empresa" runat="server"></asp:TextBox>
     <asp:TextBox ID="Txt_telefono" Placeholder="Telefono" runat="server"></asp:TextBox>
@@ -13,11 +14,16 @@
     <br />
     <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="id">
         <Columns>
+            <asp:CommandField ShowEditButton="true" ControlStyle-CssClass="btn btn-primary"  />
             <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
             <asp:BoundField DataField="empresa" HeaderText="empresa" SortExpression="empresa" />
             <asp:BoundField DataField="telefono" HeaderText="telefono" SortExpression="telefono" />
             <asp:BoundField DataField="direccion" HeaderText="direccion" SortExpression="direccion" />
+            <asp:CommandField ShowDeleteButton="true" ControlStyle-CssClass="btn btn-danger"/>
+            
         </Columns>
+
+
 
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:II-46ConnectionString %>" SelectCommand="SELECT * FROM [proveedores]"></asp:SqlDataSource>
