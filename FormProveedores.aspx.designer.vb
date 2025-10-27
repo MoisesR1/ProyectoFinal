@@ -68,13 +68,13 @@ Partial Public Class FormProveedores
     Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Control gvProductos.
+    '''Control gvProveedores.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents gvProductos As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents gvProveedores As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
     '''Control SqlDataSource1.

@@ -22,7 +22,7 @@ Public Class DataBaseHelper
         Catch ex As Exception
 
         End Try
-        Return "!Producto agregado exitosamente!"
+        Return "!Proveedor agregado exitosamente!"
     End Function
 
     Public Function delete(id As Integer) As String
@@ -40,6 +40,18 @@ Public Class DataBaseHelper
             End Using
         Catch ex As Exception
         End Try
-        Return "Persona Eliminada"
+        Return "Proveedor Eliminado"
     End Function
+
+    Public Function Refresh(id As Integer) As String
+        Try
+            Dim sql As String = ""
+        Catch ex As Exception
+
+        End Try
+
+    End Function
+
+
+
 End Class

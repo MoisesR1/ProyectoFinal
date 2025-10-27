@@ -6,12 +6,28 @@
 
     End Sub
 
-    Protected Sub Btn_Agregar_Click(sender As Object, e As EventArgs)
-        Dim proveedores As New Proveedor()
-        proveedores.id = Convert.ToInt32(Txt_idproveedor.Text)
-        proveedores.empresa = Txt_empresa.Text
-        proveedores.telefono = Txt_telefono.Text
-        proveedores.direccion = Txt_direccion.Text
-        lblMensaje.Text = dbHelper.Create(proveedores)
+    Protected Sub Btn_Agregar_Click(sender As Object, e As EventArgs, proveedor As Proveedor)
+
+        proveedor.id = Txt_idproveedor.Text
+        proveedor.empresa = Txt_empresa.Text
+        proveedor.telefono = Txt_telefono.Text
+
+        lblMensaje.Text = dbHelper.insert(proveedor)
+
+    End Sub
+
+    Protected Sub btn_Editar_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Protected Sub gvProveedores_RowDeleting(sender As Object, e As GridViewDeleteEventArgs)
+        Try
+            Dim id As Integer = Convert.ToInt32(gvProveedores.DataKeys(e.RowIndex).Value)
+            dbHelper.delete(id)
+            e.Cancel = True
+            gvProveedores.DataBind()
+        Catch ex As Exception
+            lblMensaje.Text = "Error al eliminar el proveedor: " & ex.Message
+        End Try
     End Sub
 End Class
