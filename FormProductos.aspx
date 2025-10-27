@@ -25,7 +25,8 @@
     </div>
 
     <br />
-    <asp:GridView ID="gvProductos" CssClass="table table-striped table-group-divider table-success" runat="server" AutoGenerateColumns="False" DataKeyNames="IDproducto" DataSourceID="SqlDataSource1">
+    <asp:GridView ID="gvProductos" CssClass="table table-striped table-group-divider table-success" runat="server" AutoGenerateColumns="False" DataKeyNames="IDproducto" 
+        DataSourceID="SqlDataSource1" OnRowDeleting="gvProductos_RowDeleting" OnRowEditing="gvProductos_RowEditing" OnRowCancelingEdit="gvProductos_RowCancelingEdit" OnRowUpdating="gvProductos_RowUpdating" OnSelectedIndexChanged="gvProductos_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ShowEditButton="True" ControlStyle-CssClass="btn btn-secondary"/>
             <asp:BoundField DataField="IDproducto" HeaderText="IDproducto" InsertVisible="False" ReadOnly="True" SortExpression="IDproducto" />
