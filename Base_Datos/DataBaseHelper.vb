@@ -43,15 +43,4 @@ Public Class DataBaseHelper
         Return "Proveedor Eliminado"
     End Function
 
-    Public Function Refresh(id As Integer) As String
-        Try
-            Dim sql As String = ""
-        Catch ex As Exception
-
-        End Try
-
-    End Function
-
-
-
 End Class
