@@ -46,7 +46,7 @@
             .Cantidad = e.NewValues("Cantidad"),
             .Id = IDproducto
          }
-        dbHelper.delete(IDproducto)
+        dbHelper.update(producto)
         gvProductos.DataBind()
         e.Cancel = True
         gvProductos.EditIndex = -1

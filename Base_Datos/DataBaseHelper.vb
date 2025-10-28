@@ -45,7 +45,7 @@ Public Class DataBaseHelper
 
     Public Function update(Productos As Productos) As String
         Try
-            Dim sql As String = "UPDATE Productos SET Descripcion = @Descripcion, Precio = @Precio, Cantidad = @Cantidad WHERE ID = @Id"
+            Dim sql As String = "UPDATE Productos SET Descripcion = @Descripcion, Precio = @Precio, Cantidad = @Cantidad WHERE IDproducto = @Id"
             Dim parametros As New List(Of SqlParameter) From {
                 New SqlParameter("@Id", Productos.Id),
                 New SqlParameter("@Descripcion", Productos.Descripcion),
@@ -59,6 +59,7 @@ Public Class DataBaseHelper
                     command.ExecuteNonQuery()
                 End Using
             End Using
+
         Catch ex As Exception
         End Try
         Return "Producto Actualizado"
