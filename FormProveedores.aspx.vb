@@ -10,7 +10,7 @@
 
 
     Protected Sub Btn_Agregar_Click(sender As Object, e As EventArgs) Handles Btn_Agregar.Click
-        proveedor.id = Convert.ToInt32(Txt_idproveedor.Text)
+        'proveedor.id = Convert.ToInt32(Txt_idproveedor.Text)
         proveedor.empresa = Txt_empresa.Text
         proveedor.telefono = Convert.ToInt32(Txt_telefono.Text)
         proveedor.direccion = (Txt_direccion.Text)
@@ -24,7 +24,7 @@
         proveedor.id = e.NewValues("id")
         proveedor.empresa = e.NewValues("empresa")
         proveedor.telefono = e.NewValues("telefono")
-        proveedor.direccion = e.NewValues("direcion")
+        proveedor.direccion = e.NewValues("direccion")
         proveedor.id = id
 
         dbHelper.updating(proveedor)

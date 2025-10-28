@@ -7,12 +7,11 @@ Public Class dbProveedores
 
     Public Function Create(proveedor As Proveedor) As String
         Try
-            Dim sql As String = "INSERT INTO proveedor (id, empresa, telefono, direccion) VALUES (@id, @empresa, @telefono, @direccion)"
+            Dim sql As String = "INSERT INTO [proveedores] (empresa, telefono, direccion) VALUES (@empresa, @telefono, @_direccion)"
             Dim parametros As New List(Of SqlParameter) From {
-                New SqlParameter("@id", proveedor.id),
                 New SqlParameter("@empresa", proveedor.empresa),
                 New SqlParameter("@telefono", proveedor.telefono),
-                New SqlParameter("@dirección", proveedor.direccion)
+                New SqlParameter("@_direccion", proveedor.direccion)
                 }
 
             Using connection As New SqlConnection(ConectionString)
@@ -23,7 +22,7 @@ Public Class dbProveedores
                 End Using
             End Using
         Catch ex As Exception
-
+            Console.WriteLine("" + ex.ToString())
         End Try
         Return "Proveedor Agregado correctamente"
     End Function
@@ -42,27 +41,36 @@ Public Class dbProveedores
                 End Using
             End Using
         Catch ex As Exception
+            Console.WriteLine("Error al eliminar el proveedor: " & ex.Message)
         End Try
-        Return "Producto Eliminado"
+        Return "Proveedor Eliminado"
     End Function
 
     Public Function updating(proveedor As Proveedor) As String
         Try
-            Dim sql As String = "UPDATE proveedor SET empresa = @empresa, telefono = @telefono, direccion = @direccion WHERE id = @id"
+            Dim sql As String = "UPDATE [proveedores] SET empresa = @empresa, telefono = @telefono, direccion = @direccion WHERE id = @id"
             Dim parametros As New List(Of SqlParameter) From {
                 New SqlParameter("@id", proveedor.id),
                 New SqlParameter("@empresa", proveedor.empresa),
                 New SqlParameter("@telefono", proveedor.telefono),
-                New SqlParameter("@dirección", proveedor.direccion)
+                New SqlParameter("@direccion", proveedor.direccion)
                 }
             Using connection As New SqlConnection(ConectionString)
                 Using command As New SqlCommand(sql, connection)
                     command.Parameters.AddRange(parametros.ToArray())
                     connection.Open()
-                    command.ExecuteNonQuery()
+                    Dim filasAfectadas As Integer = command.ExecuteNonQuery()
+                    If filasAfectadas > 0 Then
+                        Return "Proveedor actualizado correctamente."
+                    Else
+                        Return "No se encontró el proveedor con ese ID."
+                    End If
+
                 End Using
             End Using
         Catch ex As Exception
+            Console.WriteLine("Error al actualizar el proveedor: " & ex.Message)
+            Return "Error al actualizar"
         End Try
         Return "Proveedor Actualizado correctamente"
     End Function
