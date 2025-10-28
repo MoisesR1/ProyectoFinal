@@ -22,12 +22,12 @@ Public Class DataBaseHelper
         Catch ex As Exception
 
         End Try
-        Return "!Proveedor agregado exitosamente!"
+        Return "!Producto agregado exitosamente!"
     End Function
 
-    Public Function delete(id As Integer) As String
+    Public Function delete(ByRef id As Integer) As String
         Try
-            Dim sql As String = "DELETE FROM Productos WHERE ID = @Id"
+            Dim sql As String = "DELETE FROM Productos WHERE IDproducto = @Id"
             Dim parametros As New List(Of SqlParameter) From {
                 New SqlParameter("@Id", id)
                 }
@@ -40,7 +40,30 @@ Public Class DataBaseHelper
             End Using
         Catch ex As Exception
         End Try
-        Return "Proveedor Eliminado"
+        Return "Producto Eliminado"
+    End Function
+
+    Public Function update(Productos As Productos) As String
+        Try
+            Dim sql As String = "UPDATE Productos SET Descripcion = @Descripcion, Precio = @Precio, Cantidad = @Cantidad WHERE IDproducto = @Id"
+            Dim parametros As New List(Of SqlParameter) From {
+                New SqlParameter("@Id", Productos.Id),
+                New SqlParameter("@Descripcion", Productos.Descripcion),
+                New SqlParameter("@Precio", Productos.Precio),
+                New SqlParameter("@Cantidad", Productos.Cantidad)
+                }
+            Using connection As New SqlConnection(ConectionString)
+                Using command As New SqlCommand(sql, connection)
+                    command.Parameters.AddRange(parametros.ToArray())
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                End Using
+            End Using
+
+        Catch ex As Exception
+        End Try
+        Return "Producto Actualizado"
+
     End Function
 
 End Class

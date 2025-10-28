@@ -12,7 +12,7 @@
     <asp:Button ID="Btn_Agregar" Text="Agregar Proveedor" runat="server" CssClass="btn btn-primary" OnClick="Btn_Agregar_Click"/>
     <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
     <br />
-    <asp:GridView ID="gvProveedores" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="id" Width="672px" OnRowDeleting="gvProveedores_RowDeleting" > 
+    <asp:GridView ID="gvProveedores" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="id">
         <Columns>
             <asp:CommandField ShowEditButton="true" ControlStyle-CssClass="btn btn-primary"  />
             <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
