@@ -18,8 +18,8 @@
 
     Protected Sub gvProductos_RowDeleting(sender As Object, e As GridViewDeleteEventArgs)
         Try
-            Dim IDproducto As Integer = Convert.ToInt32(gvProductos.DataKeys(e.RowIndex).Value)
-            dbHelper.delete(IDproducto)
+            Dim id As Integer = Convert.ToInt32(gvProductos.DataKeys(e.RowIndex).Value)
+            dbHelper.delete(id)
             e.Cancel = True
             gvProductos.DataBind()
         Catch ex As Exception

@@ -27,7 +27,7 @@ Public Class DataBaseHelper
 
     Public Function delete(ByRef id As Integer) As String
         Try
-            Dim sql As String = "DELETE FROM Productos WHERE ID = @Id"
+            Dim sql As String = "DELETE FROM Productos WHERE IDproducto = @Id"
             Dim parametros As New List(Of SqlParameter) From {
                 New SqlParameter("@Id", id)
                 }
