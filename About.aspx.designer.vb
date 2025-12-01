@@ -66,4 +66,40 @@ Partial Public Class About
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lbl_mensaje As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control Txt_idproveedor.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Txt_idproveedor As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control Txt_direccion.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Txt_direccion As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control Txt_telefono.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Txt_telefono As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control Txt_empresa.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Txt_empresa As Global.System.Web.UI.WebControls.TextBox
 End Class

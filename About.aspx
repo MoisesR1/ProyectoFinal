@@ -13,5 +13,10 @@
         <asp:Button ID="Btn_ingresar" runat="server" Text="Ingresar" OnClick="Btn_ingresar_Click" />
         <asp:Label ID="lbl_mensaje" runat="server" Text=""></asp:Label>
 
+         <asp:TextBox ID="Txt_idproveedor" runat="server"></asp:TextBox>
+        <asp:TextBox ID="Txt_direccion" runat="server"></asp:TextBox>
+         <asp:TextBox ID="Txt_telefono" runat="server"></asp:TextBox>
+        <asp:TextBox ID="Txt_empresa" runat="server"></asp:TextBox>
+
     </main>
 </asp:Content>
