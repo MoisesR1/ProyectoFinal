@@ -47,9 +47,19 @@
                 </button>
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About">Acerca de</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contacto</a></li>
+                         <% If (Autenticado = False) Then%>                  
+                           <li class="nav-item"><a class="nav-link" runat="server" href="~/Login">LogIn</a></li>
+                           <li class="nav-item"><a class="nav-link" runat="server" href="~/Registro">Registro</a></li>
+                         <% end If%>
+                           <li class="nav-item" runat="server" id="liAdmin"><a class="nav-link" runat="server" href="~/Admin">Admin</a></li>
+                         <% If (Autenticado) Then%>  
+                           <li class="nav-item"><a class="nav-link" runat="server" href="~/Home">Inicio</a></li>
+                           <li class="nav-item"><a class="nav-link" runat="server" href="~/FormPropietario">Propietario</a></li>
+                           <li class="nav-item"><a class="nav-link" runat="server" href="~/FormVehiculo">Vehiculo</a></li>
+                           <li class="nav-item"><a class="nav-link" runat="server" href="~/FormPersona">Persona</a></li>
+                           <li class="nav-item"><a class="nav-link" runat="server"> 
+                          <asp:Button ID="LogOut" OnClick="LogOut_Click" runat="server" Text="Cerrar Sesion" CssClass="btn btn-danger btn-sm"/> </a></li>
+                         <% end If%>
                     </ul>
                 </div>
             </div>
@@ -61,6 +71,7 @@
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
             </footer>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         </div>
     </form>
     <asp:PlaceHolder runat="server">
