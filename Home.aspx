@@ -1,12 +1,14 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Home.aspx.vb" Inherits="ProyectoFinal.Home" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <asp:Label ID="LblUsuario" runat="server" Text="Usuario" CssClass="h3"></asp:Label>   
-    <asp:Label ID="Lbl_Email" runat="server"  CssClass="h3"></asp:Label>  
+    <asp:Label ID="LblUsuario" runat="server" Text="Usuario" CssClass="h2"></asp:Label> 
+    <br />
+    <asp:Label ID="Lbl_Email" runat="server"  CssClass="h3" Font-Underline="true"></asp:Label>  
 
 <div class="container mt-4">
 
-    <!-- TARJETA DE BÚSQUEDA -->
+    </div>
+
     <div class="card shadow-lg border-0">
         
         <div class="card-header bg-primary text-white d-flex align-items-center">
@@ -18,14 +20,12 @@
 
             <div class="row g-3">
 
-                <!-- CAMPO DE BÚSQUEDA -->
                 <div class="col-md-8">
                     <label class="form-label fw-semibold">Buscar por descripción</label>
                     <asp:TextBox ID="TxtBuscar" runat="server" CssClass="form-control form-control-lg"
                         Placeholder="Ejemplo: Martillo, Tornillo, Taladro..."></asp:TextBox>
                 </div>
 
-                <!-- BOTÓN -->
                 <div class="col-md-4 d-flex align-items-end">
                     <asp:Button 
                         ID="BtnBuscar" 
@@ -37,8 +37,7 @@
 
             </div>
 
-            <!-- RESULTADO -->
-            <div class="mt-4">
+            <div class="mt-8">
                 <asp:Label ID="lblResultado" runat="server"></asp:Label>
             </div>
 
