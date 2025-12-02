@@ -21,7 +21,7 @@ Public Class Login
             Dim User As Usuario = DbHelper.GetUser(nombreUsuario) 'Obtener el usuario
             Session("Usuario") = User 'Guardar el usuario en la sesion
             If User.Rol = "2" Then
-                Response.Redirect("Admin.aspx") 'Redirige a la pagina administrador
+                Response.Redirect("FormProductos.aspx") 'Redirige a la pagina administrador
                 Return
             End If
             Response.Redirect("Home.aspx")

@@ -51,12 +51,10 @@
                            <li class="nav-item"><a class="nav-link" runat="server" href="~/Login">LogIn</a></li>
                            <li class="nav-item"><a class="nav-link" runat="server" href="~/Registro">Registro</a></li>
                          <% end If%>
-                           <li class="nav-item" runat="server" id="liAdmin"><a class="nav-link" runat="server" href="~/Admin">Admin</a></li>
+                           <li class="nav-item" runat="server" id="liAdmin"><a class="nav-link" runat="server" href="~/Admin">Administrador</a></li>
                          <% If (Autenticado) Then%>  
                            <li class="nav-item"><a class="nav-link" runat="server" href="~/Home">Inicio</a></li>
-                           <li class="nav-item"><a class="nav-link" runat="server" href="~/FormPropietario">Propietario</a></li>
-                           <li class="nav-item"><a class="nav-link" runat="server" href="~/FormVehiculo">Vehiculo</a></li>
-                           <li class="nav-item"><a class="nav-link" runat="server" href="~/FormPersona">Persona</a></li>
+                           <li class="nav-item"><a class="nav-link" runat="server" href="~/FormProveedores">Proveedores</a></li>
                            <li class="nav-item"><a class="nav-link" runat="server"> 
                           <asp:Button ID="LogOut" OnClick="LogOut_Click" runat="server" Text="Cerrar Sesion" CssClass="btn btn-danger btn-sm"/> </a></li>
                          <% end If%>
