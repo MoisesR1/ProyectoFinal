@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <style>
-    /* Animación suave al mostrar la tarjeta */
+    
     .fade-in {
         animation: fadeIn 0.8s ease-in-out;
     }
@@ -12,19 +12,16 @@
         to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* Sombra más suave */
     .card-custom {
         border: none;
         border-radius: 15px;
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     }
 
-    /* Fondo degradado */
     body {
         background: linear-gradient(135deg, #0d6efd, #6f42c1);
     }
 
-    /* Íconos más grandes y con color */
     .input-group-text i {
         font-size: 1.2rem;
         color: #0d6efd;
@@ -54,7 +51,6 @@
                    style="font-weight:bold;">
         </asp:Label>
 
-        <!-- Usuario -->
         <div class="mb-3">
             <label for="txtUsuario" class="form-label fw-bold">Usuario</label>
             <div class="input-group input-group-lg">
@@ -65,7 +61,6 @@
             </div>
         </div>
 
-        <!-- Contraseña -->
         <div class="mb-4">
             <label for="txtPassword" class="form-label fw-bold">Contraseña</label>
             <div class="input-group input-group-lg">
