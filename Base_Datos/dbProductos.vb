@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
-Public Class DataBaseHelper
+Public Class dbProductos
     Private ReadOnly ConectionString As String = ConfigurationManager.ConnectionStrings("II-46ConnectionString").ConnectionString
 
     Public Function create(Productos As Productos) As String

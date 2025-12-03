@@ -4,7 +4,7 @@ Imports ProyectoFinal.Utils
 Public Class FormProductos
     Inherits System.Web.UI.Page
 
-    Protected dbHelper As New DataBaseHelper()
+    Protected dbHelper As New dbProductos()
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
