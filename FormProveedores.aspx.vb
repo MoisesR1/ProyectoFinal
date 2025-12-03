@@ -4,6 +4,21 @@
     Public proveedor As New Proveedor()
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Dim rol As Integer = Session("Rol")
+        If rol = 0 Then
+            Response.Redirect("~/Login.aspx")
+        End If
+        If rol = 1 Then
+
+            gvProveedores.Columns(0).Visible = False
+            gvProveedores.Columns(5).Visible = False
+            Txt_idproveedor.Visible = False
+            Txt_empresa.Visible = False
+            Txt_telefono.Visible = False
+            Txt_direccion.Visible = False
+            Btn_Agregar.Visible = False
+
+        End If
 
     End Sub
 

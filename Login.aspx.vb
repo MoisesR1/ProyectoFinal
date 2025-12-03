@@ -20,10 +20,13 @@ Public Class Login
             ' Inicio exitoso de sesion
             Dim User As Usuario = DbHelper.GetUser(nombreUsuario) 'Obtener el usuario
             Session("Usuario") = User 'Guardar el usuario en la sesion
+            Session("NombreUsuario") = User.NombreUsuario 'Guardar el nombre de usuario en la sesion
+            Session("Rol") = User.Rol 'Guardar el rol del usuario en la sesion
             If User.Rol = "2" Then
                 Response.Redirect("FormProductos.aspx") 'Redirige a la pagina administrador
                 Return
             End If
+
             Response.Redirect("Home.aspx")
         Else
             ' Mostrar mensaje de error si las credenciales son incorrectas
