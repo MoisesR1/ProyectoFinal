@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class dbProductos
+    Private ReadOnly dbHelper = New DbHelper()
     Private ReadOnly ConectionString As String = ConfigurationManager.ConnectionStrings("II-46ConnectionString").ConnectionString
 
     Public Function create(Productos As Productos) As String
@@ -20,9 +21,9 @@ Public Class dbProductos
                 End Using
             End Using
         Catch ex As Exception
-
+            Return "!Producto agregado exitosamente!" & ex.Message
         End Try
-        Return "!Producto agregado exitosamente!"
+        Return False
     End Function
 
     Public Function delete(ByRef id As Integer) As String
@@ -39,8 +40,9 @@ Public Class dbProductos
                 End Using
             End Using
         Catch ex As Exception
+            Return "Error al eliminar el producto: " & ex.Message
         End Try
-        Return "Producto Eliminado"
+        Return False
     End Function
 
     Public Function update(Productos As Productos) As String
@@ -61,8 +63,9 @@ Public Class dbProductos
             End Using
 
         Catch ex As Exception
+            Return "Producto Actualizado" & ex.Message
         End Try
-        Return "Producto Actualizado"
+        Return False
 
     End Function
 

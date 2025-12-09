@@ -15,7 +15,7 @@ Public Class dbLogin
             End If
         Catch ex As Exception
             ' Manejo de errores si es necesario
-            Return "Creedenciales incorrectas."
+            Return "Creedenciales incorrectas." & ex.Message
         End Try
         Return False
     End Function
