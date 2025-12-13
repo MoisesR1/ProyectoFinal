@@ -21,9 +21,9 @@ Public Class dbProductos
                 End Using
             End Using
         Catch ex As Exception
-            Return "!Producto agregado exitosamente!" & ex.Message
+            Return "!Error al agregar Producto!" & ex.Message
         End Try
-        Return False
+        Return "!Producto agregado exitosamente!"
     End Function
 
     Public Function delete(ByRef id As Integer) As String
@@ -42,7 +42,7 @@ Public Class dbProductos
         Catch ex As Exception
             Return "Error al eliminar el producto: " & ex.Message
         End Try
-        Return False
+        Return "Producto eliminado exitosamente"
     End Function
 
     Public Function update(Productos As Productos) As String
@@ -63,9 +63,9 @@ Public Class dbProductos
             End Using
 
         Catch ex As Exception
-            Return "Producto Actualizado" & ex.Message
+            Return "Error al actualizar producto" & ex.Message
         End Try
-        Return False
+        Return "Producto Actualizado"
 
     End Function
 
