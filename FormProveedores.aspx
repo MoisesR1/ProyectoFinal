@@ -36,9 +36,9 @@
     ID="SqlDataSource1" 
     runat="server" 
     ConnectionString="<%$ ConnectionStrings:II-46ConnectionString %>" 
-    SelectCommand="SELECT * FROM proveedores"
-    DeleteCommand="DELETE FROM proveedores WHERE id = @id"
-    UpdateCommand="UPDATE proveedores SET empresa = @empresa, telefono = @telefono, direccion = @direccion WHERE id = @id">
+    SelectCommand="SELECT * FROM Proveedores"
+    DeleteCommand="DELETE FROM Proveedores WHERE id = @id"
+    UpdateCommand="UPDATE Proveedores SET empresa = @empresa, telefono = @telefono, direccion = @direccion WHERE id = @id">
     <DeleteParameters>
         <asp:Parameter Name="id" Type="Int32" />
     </DeleteParameters>

@@ -7,11 +7,12 @@ Public Class dbProveedores
 
     Public Function Create(proveedor As Proveedor) As String
         Try
-            Dim sql As String = "INSERT INTO [proveedores] (empresa, telefono, direccion) VALUES (@empresa, @telefono, @_direccion)"
+            Dim sql As String = "INSERT INTO [Proveedores] (id,empresa, telefono, direccion) VALUES (@id,@empresa, @telefono, @direccion)"
             Dim parametros As New List(Of SqlParameter) From {
+                New SqlParameter("@id", proveedor.id),
                 New SqlParameter("@empresa", proveedor.empresa),
                 New SqlParameter("@telefono", proveedor.telefono),
-                New SqlParameter("@_direccion", proveedor.direccion)
+                New SqlParameter("@direccion", proveedor.direccion)
                 }
 
             Using connection As New SqlConnection(ConectionString)
@@ -29,7 +30,7 @@ Public Class dbProveedores
 
     Public Function delete(ByRef id As Integer) As String
         Try
-            Dim sql As String = "DELETE FROM proveedores WHERE id = @Id"
+            Dim sql As String = "DELETE FROM Proveedores WHERE id = @Id"
             Dim parametros As New List(Of SqlParameter) From {
                 New SqlParameter("@id", id)
                 }
@@ -48,7 +49,7 @@ Public Class dbProveedores
 
     Public Function updating(proveedor As Proveedor) As String
         Try
-            Dim sql As String = "UPDATE [proveedores] SET empresa = @empresa, telefono = @telefono, direccion = @direccion WHERE id = @id"
+            Dim sql As String = "UPDATE [Proveedores] SET empresa = @empresa, telefono = @telefono, direccion = @direccion WHERE id = @id"
             Dim parametros As New List(Of SqlParameter) From {
                 New SqlParameter("@id", proveedor.id),
                 New SqlParameter("@empresa", proveedor.empresa),

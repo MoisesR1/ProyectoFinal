@@ -1,72 +1,61 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class dbProductos
-    Private ReadOnly dbHelper = New DbHelper()
-    Private ReadOnly ConectionString As String = ConfigurationManager.ConnectionStrings("II-46ConnectionString").ConnectionString
+    Private ReadOnly connectionString As String = ConfigurationManager.ConnectionStrings("II-46ConnectionString").ConnectionString
 
-    Public Function create(Productos As Productos) As String
+    Public Function Create(producto As Productos) As String
         Try
             Dim sql As String = "INSERT INTO Productos (Descripcion, Precio, Cantidad) VALUES (@Descripcion, @Precio, @Cantidad)"
-            Dim parametros As New List(Of SqlParameter) From {
-                New SqlParameter("@Descripcion", Productos.Descripcion),
-                New SqlParameter("@Precio", Productos.Precio),
-                New SqlParameter("@Cantidad", Productos.Cantidad)
-                }
-
-            Using connection As New SqlConnection(ConectionString)
+            Using connection As New SqlConnection(connectionString)
                 Using command As New SqlCommand(sql, connection)
-                    command.Parameters.AddRange(parametros.ToArray())
+                    command.Parameters.AddWithValue("@Descripcion", producto.Descripcion)
+                    command.Parameters.AddWithValue("@Precio", producto.Precio)
+                    command.Parameters.AddWithValue("@Cantidad", producto.Cantidad)
                     connection.Open()
                     command.ExecuteNonQuery()
                 End Using
             End Using
+            Return "Producto agregado exitosamente"
         Catch ex As Exception
-            Return "!Producto agregado exitosamente!" & ex.Message
+            Return "Error al agregar producto: " & ex.Message
         End Try
-        Return False
     End Function
 
-    Public Function delete(ByRef id As Integer) As String
+    Public Function Delete(id As Integer) As String
         Try
             Dim sql As String = "DELETE FROM Productos WHERE IDproducto = @Id"
-            Dim parametros As New List(Of SqlParameter) From {
-                New SqlParameter("@Id", id)
-                }
-            Using connection As New SqlConnection(ConectionString)
+            Using connection As New SqlConnection(connectionString)
                 Using command As New SqlCommand(sql, connection)
-                    command.Parameters.AddRange(parametros.ToArray())
+                    command.Parameters.AddWithValue("@Id", id)
                     connection.Open()
-                    command.ExecuteNonQuery()
+                    Dim rows = command.ExecuteNonQuery()
+                    If rows = 0 Then Return "El producto no existe"
                 End Using
             End Using
+            Return "Producto eliminado exitosamente"
         Catch ex As Exception
-            Return "Error al eliminar el producto: " & ex.Message
+            Return "Error al eliminar producto: " & ex.Message
         End Try
-        Return False
     End Function
 
-    Public Function update(Productos As Productos) As String
+    Public Function Update(producto As Productos) As String
         Try
-            Dim sql As String = "UPDATE Productos SET Descripcion = @Descripcion, Precio = @Precio, Cantidad = @Cantidad WHERE IDproducto = @Id"
-            Dim parametros As New List(Of SqlParameter) From {
-                New SqlParameter("@Id", Productos.Id),
-                New SqlParameter("@Descripcion", Productos.Descripcion),
-                New SqlParameter("@Precio", Productos.Precio),
-                New SqlParameter("@Cantidad", Productos.Cantidad)
-                }
-            Using connection As New SqlConnection(ConectionString)
+            Dim sql As String = "UPDATE Productos SET Descripcion=@Descripcion, Precio=@Precio, Cantidad=@Cantidad WHERE IDproducto=@Id"
+            Using connection As New SqlConnection(connectionString)
                 Using command As New SqlCommand(sql, connection)
-                    command.Parameters.AddRange(parametros.ToArray())
+                    command.Parameters.AddWithValue("@Id", producto.Id)
+                    command.Parameters.AddWithValue("@Descripcion", producto.Descripcion)
+                    command.Parameters.AddWithValue("@Precio", producto.Precio)
+                    command.Parameters.AddWithValue("@Cantidad", producto.Cantidad)
                     connection.Open()
-                    command.ExecuteNonQuery()
+                    Dim rows = command.ExecuteNonQuery()
+                    If rows = 0 Then Return "El producto no existe"
                 End Using
             End Using
-
+            Return "Producto actualizado"
         Catch ex As Exception
-            Return "Producto Actualizado" & ex.Message
+            Return "Error al actualizar producto: " & ex.Message
         End Try
-        Return False
-
     End Function
-
 End Class
+

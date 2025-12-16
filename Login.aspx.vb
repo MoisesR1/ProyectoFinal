@@ -1,35 +1,34 @@
 ﻿Imports ProyectoFinal.Utils
-Imports Microsoft.VisualBasic.ApplicationServices
 
 Public Class Login
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
     End Sub
 
     Protected Sub btnIniciarSesion_Click(sender As Object, e As EventArgs)
-
         Dim nombreUsuario = txtUsuario.Text
-        Dim Password = txtPassword.Text
-        Dim encrypter As New Simple3Des("MiClaveSecreta123") ' Clave de encriptación
-        Dim pass As String = encrypter.EncryptData(Password) ' Encriptar la contraseña
-        Dim DbHelper As New dbLogin()
-        Dim isValid As Boolean = DbHelper.ValidateLogin(nombreUsuario, pass)
+        Dim password = txtPassword.Text
+
+        Dim encrypter As New Simple3Des("MiClaveSecreta123")
+        Dim pass As String = encrypter.EncryptData(password)
+
+        Dim dbHelper As New dbLogin()
+        Dim isValid As Boolean = dbHelper.ValidateLogin(nombreUsuario, pass)
+
         If isValid Then
-            ' Inicio exitoso de sesion
-            Dim User As Usuario = DbHelper.GetUser(nombreUsuario) 'Obtener el usuario
-            Session("Usuario") = User 'Guardar el usuario en la sesion
-            Session("NombreUsuario") = User.NombreUsuario 'Guardar el nombre de usuario en la sesion
-            Session("Rol") = User.Rol 'Guardar el rol del usuario en la sesion
+            Dim User As Usuario = dbHelper.GetUser(nombreUsuario)
+            Session("Usuario") = User
+            Session("NombreUsuario") = User.NombreUsuario
+            Session("Rol") = User.Rol
+
             If User.Rol = "2" Then
-                Response.Redirect("FormProductos.aspx") 'Redirige a la pagina administrador
+                Response.Redirect("FormProductos.aspx")
                 Return
             End If
 
             Response.Redirect("Home.aspx")
         Else
-            ' Mostrar mensaje de error si las credenciales son incorrectas
             SwalUtils.ShowSwalError(Me, "Error de inicio de sesión", "Credenciales incorrectas.")
         End If
     End Sub
