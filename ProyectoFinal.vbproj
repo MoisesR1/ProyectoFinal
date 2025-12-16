@@ -123,6 +123,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Administrador.aspx" />
+    <Content Include="buscar.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -228,6 +229,13 @@
     <Compile Include="Base_Datos\dbProductos.vb" />
     <Compile Include="Base_Datos\dbLogin.vb" />
     <Compile Include="Base_Datos\dbProveedores.vb" />
+    <Compile Include="buscar.aspx.designer.vb">
+      <DependentUpon>buscar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="buscar.aspx.vb">
+      <DependentUpon>buscar.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Contact.aspx.designer.vb">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
@@ -272,6 +280,9 @@
     <Compile Include="Login.aspx.vb">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Models\Buscar.vb">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Models\Productos.vb" />
     <Compile Include="Models\Proveedor.vb" />

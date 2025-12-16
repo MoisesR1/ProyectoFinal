@@ -2,7 +2,7 @@
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
     
 
-    <h2>Inventario de Ferretería Brenes</h2>
+    <h2>Inventario de Ferreteria Brenes</h2>
 
 <asp:TextBox ID="Txt_idproveedor" Placeholder="ID (auto)" runat="server" ReadOnly="true" CssClass="form-control mb-2 w-25"></asp:TextBox>
 <asp:TextBox ID="Txt_empresa" Placeholder="Empresa" runat="server" CssClass="form-control mb-2 w-25"></asp:TextBox>
@@ -20,6 +20,7 @@
     DataKeyNames="id"
     CssClass="table table-bordered table-hover text-center"
     HeaderStyle-CssClass="table-dark">
+    
 
     <Columns>
         <asp:CommandField ShowEditButton="true" ControlStyle-CssClass="btn btn-sm btn-primary me-1" EditText="Editar" UpdateText="Guardar" CancelText="Cancelar" />
