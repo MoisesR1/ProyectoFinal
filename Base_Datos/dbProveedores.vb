@@ -75,4 +75,20 @@ Public Class dbProveedores
         End Try
         Return "Proveedor Actualizado correctamente"
     End Function
+
+    Public Function ObtenerProveedores() As DataTable
+        Dim dt As New DataTable()
+        Dim sql As String = "SELECT id, empresa FROM Proveedores"
+
+        Using conn As New SqlConnection(ConectionString)
+            Using cmd As New SqlCommand(sql, conn)
+                conn.Open()
+                Using reader As SqlDataReader = cmd.ExecuteReader()
+                    dt.Load(reader)
+                End Using
+            End Using
+        End Using
+
+        Return dt
+    End Function
 End Class

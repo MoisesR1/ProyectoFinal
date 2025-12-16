@@ -3,6 +3,7 @@
     Private _descripcion As String
     Private _precio As Decimal
     Private _cantidad As Integer
+    Public Property IdProveedor As Integer
 
     Public Property Id As Integer
         Get

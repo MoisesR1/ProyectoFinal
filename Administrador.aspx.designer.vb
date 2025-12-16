@@ -11,43 +11,34 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Administrador
+Partial Public Class Admin
 
     '''<summary>
-    '''Control gvProductos.
+    '''Control TxtDescripcion.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents gvProductos As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents TxtDescripcion As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control txtDescripcion.
+    '''Control TxtPrecio.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtDescripcion As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents TxtPrecio As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control txtPrecio.
+    '''Control TxtCantidad.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtPrecio As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control txtCantidad.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtCantidad As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents TxtCantidad As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''Control ddlProveedores.
@@ -57,4 +48,31 @@ Partial Public Class Administrador
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents ddlProveedores As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control BtnAgregar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents BtnAgregar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control lblMensaje.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control gvAdmin.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents gvAdmin As Global.System.Web.UI.WebControls.GridView
 End Class

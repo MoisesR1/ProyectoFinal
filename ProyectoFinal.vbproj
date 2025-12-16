@@ -224,6 +224,7 @@
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Base_Datos\dbAdmin.vb" />
     <Compile Include="Base_Datos\dbProductos.vb" />
     <Compile Include="Base_Datos\dbLogin.vb" />
     <Compile Include="Base_Datos\dbProveedores.vb" />
