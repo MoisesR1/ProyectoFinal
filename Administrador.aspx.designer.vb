@@ -14,49 +14,22 @@ Option Explicit On
 Partial Public Class Admin
 
     '''<summary>
-    '''Control TxtDescripcion.
+    '''Control ddlProductos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents TxtDescripcion As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ddlProductos As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''Control TxtPrecio.
+    '''Control BtnBusqueda.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents TxtPrecio As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control TxtCantidad.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents TxtCantidad As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control ddlProveedores.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents ddlProveedores As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''Control BtnAgregar.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents BtnAgregar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents BtnBusqueda As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''Control lblMensaje.

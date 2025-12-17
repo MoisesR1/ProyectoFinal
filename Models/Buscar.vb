@@ -2,7 +2,7 @@
 
 Public Class Buscar
 
-    Private _id As Integer
+    Private _idProveedor As Integer
     Private _empresa As String
     Private _telefono As String
     Private _producto As String
@@ -10,12 +10,12 @@ Public Class Buscar
     Private ddlProducto As Object
     Private lblMsg As Object
 
-    Public Property Id As Integer
+    Public Property IdProveedor As Integer
         Get
-            Return _id
+            Return _idProveedor
         End Get
         Set(value As Integer)
-            _id = value
+            _idProveedor = value
         End Set
     End Property
 
@@ -61,8 +61,8 @@ Public Class Buscar
 
     End Sub
 
-    Public Sub New(id As Integer, empresa As String, telefono As String, producto As String, cantidad As Integer)
-        Me.Id = id
+    Public Sub New(idProveedor As Integer, empresa As String, telefono As String, producto As String, cantidad As Integer)
+        Me.IdProveedor = idProveedor
         Me.Empresa = empresa
         Me.Producto = producto
         Me.Cantidad = cantidad
@@ -71,15 +71,15 @@ Public Class Buscar
 
 
     Protected Sub Btn_AgregarProducto_Click(sender As Object, e As EventArgs)
-            Try
-                Dim idProveedor As Integer = Convert.ToInt32(ddlProveedor.SelectedValue)
-                Dim idProducto As Integer = Convert.ToInt32(ddlProducto.SelectedValue)
-                Dim precioProv As Decimal = Decimal.Parse(TxtPrecioProveedor.Text)
+        Try
+            Dim idProveedor As Integer = Convert.ToInt32(ddlProveedor.SelectedValue)
+            Dim idProducto As Integer = Convert.ToInt32(ddlProducto.SelectedValue)
+            Dim precioProv As Decimal = Decimal.Parse(TxtPrecioProveedor.Text)
 
-                Dim cs As String = System.Configuration.ConfigurationManager.ConnectionStrings("II-46ConnectionString").ConnectionString
+            Dim cs As String = System.Configuration.ConfigurationManager.ConnectionStrings("II-46ConnectionString").ConnectionString
 
-                Using cn As New SqlConnection(cs)
-                    cn.Open()
+            Using cn As New SqlConnection(cs)
+                cn.Open()
 
 
                 Dim sql As String = "IF EXISTS (SELECT 1 FROM dbo.ProveedorProducto WHERE IdProveedor=@IdProveedor AND IdProducto=@IdProducto)
@@ -90,25 +90,25 @@ Public Class Buscar
                          VALUES (@IdProveedor, @IdProducto, @PrecioProveedor);"
 
                 Using cmd As New SqlCommand(sql, cn)
-                        cmd.Parameters.AddWithValue("@IdProveedor", idProveedor)
-                        cmd.Parameters.AddWithValue("@IdProducto", idProducto)
-                        cmd.Parameters.AddWithValue("@PrecioProveedor", precioProv)
-                        cmd.ExecuteNonQuery()
-                    End Using
+                    cmd.Parameters.AddWithValue("@IdProveedor", idProveedor)
+                    cmd.Parameters.AddWithValue("@IdProducto", idProducto)
+                    cmd.Parameters.AddWithValue("@PrecioProveedor", precioProv)
+                    cmd.ExecuteNonQuery()
                 End Using
+            End Using
 
-                lblMsg.CssClass = "text-success mt-2 d-block"
-                lblMsg.Text = "✅ Producto ligado al proveedor."
+            lblMsg.CssClass = "text-success mt-2 d-block"
+            lblMsg.Text = "✅ Producto ligado al proveedor."
 
-                TxtPrecioProveedor.Text = ""
-                gvResultado.DataBind()
+            TxtPrecioProveedor.Text = ""
+            gvResultado.DataBind()
 
-            Catch ex As Exception
+        Catch ex As Exception
             lblMsg.CssClass = "text-danger mt-2 d-block"
             lblMsg.Text = "❌ Error: " & ex.Message
-            End Try
-        End Sub
+        End Try
+    End Sub
 
-    End Class
+End Class
 
 

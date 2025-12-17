@@ -14,65 +14,52 @@ Public Class Admin
         End If
 
         If Not IsPostBack Then
-            CargarProveedores()
-            CargarDatos()
+            CargarProductos()
+            gvAdmin.DataSource = Nothing
+            gvAdmin.DataBind()
         End If
     End Sub
 
-    Private Sub CargarProveedores()
-        Dim dtProveedores As DataTable = dbProveedores.ObtenerProveedores()
+    Private Sub CargarProductos()
+        Dim dtProductos As DataTable = dbProductos.ObtenerProductos()
+        ddlProductos.DataSource = dtProductos
+        ddlProductos.DataTextField = "Descripcion"
+        ddlProductos.DataValueField = "IDproducto"
+        ddlProductos.DataBind()
 
-        ddlProveedores.DataSource = dtProveedores
-        ddlProveedores.DataTextField = "empresa"
-        ddlProveedores.DataValueField = "Id"
-        ddlProveedores.DataBind()
-
-        ddlProveedores.Items.Insert(0, New ListItem("--Seleccione proveedor--", "0"))
+        ddlProductos.Items.Insert(0, New ListItem("--Seleccione un producto--", "0"))
     End Sub
 
-    Private Sub CargarDatos()
-        Dim dt As DataTable = dbHelper.ObtenerProductosConProveedores()
-        gvAdmin.DataSource = dt
-        gvAdmin.DataBind()
-    End Sub
-
-    Protected Sub BtnAgregar_Click(sender As Object, e As EventArgs)
+    Protected Sub BtnBusqueda_Click(sender As Object, e As EventArgs) Handles BtnBusqueda.Click
         Try
-            Dim proveedorId As Integer = Convert.ToInt32(ddlProveedores.SelectedValue)
-            If proveedorId = 0 Then
-                lblMensaje.Text = "Por favor, seleccione un proveedor válido."
+            Dim idProducto As Integer = Convert.ToInt32(ddlProductos.SelectedValue)
+
+            If idProducto = 0 Then
+                lblMensaje.CssClass = "text-danger fw-bold mt-2"
+                lblMensaje.Text = "Por favor, seleccione un producto válido."
+                gvAdmin.DataSource = Nothing
+                gvAdmin.DataBind()
                 Return
             End If
 
-            Dim nuevoProducto As New Productos With {
-                .Descripcion = TxtDescripcion.Text.Trim(),
-                .Precio = Convert.ToDecimal(TxtPrecio.Text),
-                .Cantidad = Convert.ToInt32(TxtCantidad.Text),
-                .IdProveedor = proveedorId
-            }
+            Dim dt As DataTable = dbHelper.ObtenerProductoPorId(idProducto)
 
-            Dim mensaje = dbProductos.Create(nuevoProducto)
-
-            If mensaje.Contains("Error") Then
-                lblMensaje.Text = mensaje
-            Else
-                lblMensaje.CssClass = "text-success fw-bold mt-2"
-                lblMensaje.Text = mensaje
-
-                ' Limpiar campos después de agregar
-                TxtDescripcion.Text = ""
-                TxtPrecio.Text = ""
-                TxtCantidad.Text = ""
-                ddlProveedores.SelectedIndex = 0
-
+            If dt.Rows.Count > 0 Then
+                gvAdmin.DataSource = dt
                 gvAdmin.DataBind()
-                CargarDatos()
+                lblMensaje.Text = ""
+            Else
+                gvAdmin.DataSource = Nothing
+                gvAdmin.DataBind()
+                lblMensaje.CssClass = "text-danger fw-bold mt-2"
+                lblMensaje.Text = "No se encontró información para este producto."
             End If
 
         Catch ex As Exception
+            lblMensaje.CssClass = "text-danger fw-bold mt-2"
             lblMensaje.Text = "Error: " & ex.Message
         End Try
     End Sub
-
 End Class
+
 

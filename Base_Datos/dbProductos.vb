@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
-
+Imports System.Configuration
+Imports System.Data
 Public Class dbProductos
     Private ReadOnly connectionString As String = ConfigurationManager.ConnectionStrings("II-46ConnectionString").ConnectionString
 
@@ -56,6 +57,21 @@ Public Class dbProductos
         Catch ex As Exception
             Return "Error al actualizar producto: " & ex.Message
         End Try
+    End Function
+    Public Function ObtenerProductos() As DataTable
+        Dim dt As New DataTable()
+        Dim sql As String = "SELECT IDproducto, Descripcion FROM Productos"
+
+        Using conn As New SqlConnection(connectionString)
+            Using cmd As New SqlCommand(sql, conn)
+                conn.Open()
+                Using reader As SqlDataReader = cmd.ExecuteReader()
+                    dt.Load(reader)
+                End Using
+            End Using
+        End Using
+
+        Return dt
     End Function
 End Class
 
